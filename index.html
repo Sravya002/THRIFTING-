@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trifting - Clothing Store</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fafafa;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background: url('https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=1200&q=80') no-repeat center/cover;
+      color: white;
+    }
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+    header p {
+      font-size: 1.2em;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 15px;
+    }
+    .card-content h3 {
+      margin: 0 0 10px;
+    }
+    .card-content p {
+      font-size: 0.9em;
+      margin: 0 0 10px;
+    }
+    .price {
+      font-weight: bold;
+      margin-bottom: 10px;
+      display: block;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>TrendyWear</h1>
+    <p>Style that Speaks • Fashion that Fits</p>
+  </header>
+
+  <section class="products">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=400&q=80" alt="T-Shirt">
+      <div class="card-content">
+        <h3>Classic T-Shirt</h3>
+        <p>Soft cotton tee perfect for everyday wear.</p>
+        <span class="price">₹499</span>
+        <button onclick="buyProduct('Classic T-Shirt', '₹499', this)">Buy Now</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80" alt="Jeans">
+      <div class="card-content">
+        <h3>Denim Jeans</h3>
+        <p>Comfortable slim-fit denim jeans.</p>
+        <span class="price">₹1,299</span>
+        <button onclick="buyProduct('Denim Jeans', '₹1,299', this)">Buy Now</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1520962918287-7448c2878f65?auto=format&fit=crop&w=400&q=80" alt="Dress">
+      <div class="card-content">
+        <h3>Summer Dress</h3>
+        <p>Light and breezy floral dress for sunny days.</p>
+        <span class="price">₹1,599</span>
+        <button onclick="buyProduct('Summer Dress', '₹1,599', this)">Buy Now</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1520975922071-a40a8c57c8f5?auto=format&fit=crop&w=400&q=80" alt="Jacket">
+      <div class="card-content">
+        <h3>Leather Jacket</h3>
+        <p>Classic leather jacket for a bold look.</p>
+        <span class="price">₹3,499</span>
+        <button onclick="buyProduct('Leather Jacket', '₹3,499', this)">Buy Now</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=400&q=80" alt="Hoodie">
+      <div class="card-content">
+        <h3>Casual Hoodie</h3>
+        <p>Warm and stylish hoodie for casual outings.</p>
+        <span class="price">₹999</span>
+        <button onclick="buyProduct('Casual Hoodie', '₹999', this)">Buy Now</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=400&q=80" alt="Shoes">
+      <div class="card-content">
+        <h3>Running Shoes</h3>
+        <p>Durable and comfortable running shoes.</p>
+        <span class="price">₹2,499</span>
+        <button onclick="buyProduct('Running Shoes', '₹2,499', this)">Buy Now</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function buyProduct(name, price, btn) {
+      const img = btn.closest(".card").querySelector("img").src;
+      localStorage.setItem("productName", name);
+      localStorage.setItem("productPrice", price);
+      localStorage.setItem("productImg", img);
+      window.location.href = "form.html";
+    }
+  </script>
+</body>
+</html>
